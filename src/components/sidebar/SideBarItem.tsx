@@ -1,4 +1,3 @@
-import React from "react";
 import { Items } from "../../interfaces";
 import { useItems } from "../../contexts/ItemsContext";
 

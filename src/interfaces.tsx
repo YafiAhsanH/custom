@@ -10,6 +10,7 @@ export interface ItemsContextType {
 export interface SideBarContextType {
   sideBarActive: boolean;
   toggleSideBar: Function;
+  sideBarRef?: React.RefObject<HTMLDivElement>
 }
 
 export interface Items {

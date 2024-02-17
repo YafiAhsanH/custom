@@ -1,4 +1,3 @@
-import React from "react";
 import { Data } from "../App";
 import { useItems } from "../contexts/ItemsContext";
 

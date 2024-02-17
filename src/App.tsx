@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
-import ItemsProvider, { useItems } from "./contexts/ItemsContext";
+import ItemsProvider from "./contexts/ItemsContext";
 import MainPage from "./components/MainPage";
 import { Items } from "./interfaces";
 import SideBarProvider from "./contexts/SideBarContext";
