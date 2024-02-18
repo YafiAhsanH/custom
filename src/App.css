@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.blob {
+  background: radial-gradient(
+    farthest-corner,
+    rgba(191, 215, 255, 0.5) 20%,
+    rgba(191, 215, 255, 0) 60%
+  );
+}

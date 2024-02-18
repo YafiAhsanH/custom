@@ -2,29 +2,46 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}',],
   theme: {
-    extend: { boxShadow: {
-      '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
-    }, colors: {
-      "my-teal": {
-        100: '#9dd9d2',
+    extend: { 
+      boxShadow: {
+        'marquee': '0 15px 65px 20px rgba(0, 0, 0, 0.1)',
+      }, 
+      colors: {
+        "my-teal": {
+          100: '#9dd9d2',
+        },
+        "my-blue": {
+          100: '#E2FDFF',
+          200: '#BFD7FF',
+          300: '#9BB1FF',
+          400: '#788BFF',
+          500: '#5465FF',
+        },
+        "my-black": {
+          100: '#202a25',
+        },
+        "my-brown": {
+          100: '#d17a22',
+        },
+        "my-moss": {
+          100: '#47624f',
+        },
+      },  
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+        marquee2: 'marquee2 25s linear infinite',
+      },  
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        marquee2: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
       },
-      "my-blue": {
-        100: '#E2FDFF',
-        200: '#BFD7FF',
-        300: '#9BB1FF',
-        400: '#788BFF',
-        500: '#5465FF',
-      },
-      "my-black": {
-        100: '#202a25',
-      },
-      "my-brown": {
-        100: '#d17a22',
-      },
-      "my-moss": {
-        100: '#47624f',
-      },
-    }},
+    },
   },
   plugins: [],
 }
