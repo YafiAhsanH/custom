@@ -5,6 +5,7 @@ import MainPage from "./components/MainPage";
 import { Items } from "./interfaces";
 import SideBarProvider from "./contexts/SideBarContext";
 import SideBar from "./components/sidebar/SideBar";
+import Blobs from "./components/Blobs";
 
 export const Data: Items[] = [
   { id: 0, value: 1, count: 1, price: 1 },
@@ -23,6 +24,7 @@ function App() {
     <ItemsProvider>
       <SideBarProvider>
         <div className="flex flex-col min-h-screen relative">
+          <Blobs right="18rem" />
           <Navbar />
           <MainPage />
           <SideBar />

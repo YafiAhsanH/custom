@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: { 
       boxShadow: {
-        'marquee': '0 15px 65px 20px rgba(0, 0, 0, 0.1)',
+        'marquee': '0 15px 65px 20px rgba(191, 215, 255, 0.4)',
       }, 
       colors: {
         "my-teal": {
@@ -41,6 +41,9 @@ module.exports = {
           '100%': { transform: 'translateX(0%)' },
         },
       },
+      backgroundImage: {
+        'cart-pattern': "url('../public/cartImage.jpg')",
+      }
     },
   },
   plugins: [],
