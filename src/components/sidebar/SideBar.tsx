@@ -1,12 +1,11 @@
 import { useSideBar } from "../../contexts/SideBarContext";
-import { useItems } from "../../contexts/ItemsContext";
+import { useCart } from "../../contexts/CartContext";
 import { Items } from "../../interfaces";
 import SideBarItem from "./SideBarItem";
 
-
 const SideBar = () => {
   const sideBarContextObject = useSideBar();
-  const itemsContextObject = useItems();
+  const cartContextObject = useCart();
 
   return (
     <div
@@ -18,11 +17,11 @@ const SideBar = () => {
       {sideBarContextObject.sideBarActive ? (
         <>
           <div className="flex flex-col gap-3">
-            {itemsContextObject.items.map((item: Items) => {
-              return <SideBarItem item={item} key={item.id}/>;
+            {cartContextObject.items.map((item: Items) => {
+              return <SideBarItem item={item} key={item.id} />;
             })}
           </div>
-          <div>{`total: $${itemsContextObject.getTotal()}`}</div>
+          <div>{`total: $${cartContextObject.getTotal()}`}</div>
         </>
       ) : (
         <></>

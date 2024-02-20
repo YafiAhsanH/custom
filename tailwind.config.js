@@ -5,6 +5,7 @@ module.exports = {
     extend: { 
       boxShadow: {
         'marquee': '0 15px 65px 20px rgba(191, 215, 255, 0.4)',
+        'item-card': '0 15px 30px -5px rgba(191, 215, 255, 0.8)',
       }, 
       colors: {
         "my-teal": {
@@ -30,6 +31,7 @@ module.exports = {
       animation: {
         marquee: 'marquee 25s linear infinite',
         marquee2: 'marquee2 25s linear infinite',
+        snackbar: 'fade-in 0.5s, fade-out 0.5s 2.5s',
       },  
       keyframes: {
         marquee: {
@@ -40,10 +42,18 @@ module.exports = {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' },
         },
+        'fade-in': {
+          '0%': { bottom: 0, opacity: 0},
+          '100%': { bottom: "1rem", opacity: 1},
+        },
+        'fade-out': {
+          '0%': { bottom: "1rem", opacity: 1},
+          '100%': { bottom: 0, opacity: 0},
+        },
       },
       backgroundImage: {
         'cart-pattern': "url('../public/cartImage.jpg')",
-      }
+      },
     },
   },
   plugins: [],

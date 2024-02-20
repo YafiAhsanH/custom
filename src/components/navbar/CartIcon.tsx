@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useSideBar } from "../../contexts/SideBarContext";
-import { useItems } from "../../contexts/ItemsContext";
+import { useCart } from "../../contexts/CartContext";
 
 const CartIcon = () => {
-  const itemsContextObject = useItems();
+  const cartContextObject = useCart();
   const sideBarContextObject = useSideBar();
 
   const [hover, setHover] = useState(false);
@@ -20,7 +20,7 @@ const CartIcon = () => {
         <img src="/cartIcon.png" alt="cart icon" width={30} />
       )}
 
-      {itemsContextObject.items.length > 0 && (
+      {cartContextObject.items.length > 0 && (
         <div className="bg-red-500 w-4 h-4 absolute rounded-full top-1 right-1"></div>
       )}
     </div>

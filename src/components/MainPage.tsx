@@ -1,28 +1,24 @@
-import { Data } from "../App";
-import { useItems } from "../contexts/ItemsContext";
+import { useState } from "react";
 import Hero from "./Hero";
+import ItemCard from "./ItemCard";
 import Marquee from "./Marquee";
+import { useData } from "../contexts/DataContext";
 
 const MainPage = () => {
-  const itemsContextObject = useItems();
-
+  const dataContextObject = useData();
+  const [pos, setPos] = useState(0);
   return (
     <main className="justify-center items-center flex flex-col flex-grow h-fit overflow-x-clip px-[15%] ">
       <Hero />
-      <Marquee />
-      <div className="bg-my-blue-100 m-auto flex flex-col justify-center items-center p-10">
-        <div className="flex gap-3">
-          {Data.map((item) => {
-            return (
-              <div
-                key={item.id}
-                className=" hover:cursor-pointer"
-                onClick={() => itemsContextObject.handleAddItem(item.id)}
-              >{`button${item.value}`}</div>
-            );
-          })}
-        </div>
+      <div
+        className={` flex justify-center flex-wrap items-center p-10 gap-8 translate-x-[${pos}vw] transition`}
+      >
+        {dataContextObject.items.map((item) => {
+          return <ItemCard key={item.id} item={item} />;
+        })}
       </div>
+      <div onClick={() => setPos((prev) => prev + 10)}>{`right ${pos}`}</div>
+      <Marquee />
     </main>
   );
 };

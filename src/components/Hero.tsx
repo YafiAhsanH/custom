@@ -26,8 +26,13 @@ const Hero = () => {
           seamless shopping experience.
         </p>
       </div>
-      <div className="flex justify-start items-end bg-my-blue-300 rounded-2xl row-start-4 col-start-1 row-span-full col-span-full bg-cart-pattern bg-cover bg-right p-6">
-        <div className="rounded-full bg-white px-6 py-2 font-semibold flex hover:cursor-pointer hover:scale-105 transition active:scale-95">
+      <div className="flex justify-start items-end bg-my-blue-300 rounded-2xl row-start-4 col-start-1 row-span-full col-span-full bg-cart-pattern bg-cover bg-right p-6 ">
+        <div
+          className="rounded-full bg-white px-6 py-2 font-semibold flex hover:cursor-pointer hover:scale-105 transition active:scale-95"
+          onClick={() => {
+            alert("Browse Now!");
+          }}
+        >
           Browse now {"\u2192"}
         </div>
       </div>
