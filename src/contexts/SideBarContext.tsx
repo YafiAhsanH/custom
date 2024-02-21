@@ -17,25 +17,6 @@ export function useSideBar() {
   return useContext(SideBarContext);
 }
 
-// export function OutsideClick(ref: React.RefObject<HTMLDivElement>) {
-//   const [isClicked, setIsClicked] = useState(false);
-//   useEffect(() => {
-//     function handleClickOutside(event: { target: any }) {
-//       if (ref.current && !ref.current.contains(event.target)) {
-//         setIsClicked(true);
-//       } else {
-//         setIsClicked(false);
-//       }
-//     }
-
-//     document.addEventListener("mousedown", handleClickOutside);
-//     return () => {
-//       document.removeEventListener("mousedown", handleClickOutside);
-//     };
-//   }, [ref]);
-//   return isClicked;
-// }
-
 const SideBarProvider = ({ children }: { children: React.ReactNode }) => {
   const [sideBarActive, setSideBarActive] = useState(false);
   const sideBarRef = useRef<HTMLDivElement>(null);

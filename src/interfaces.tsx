@@ -1,6 +1,9 @@
 export interface DataContextType {
   items: Items[];
   handleToggleBookmark: Function;
+  handleIncCount: Function;
+  handleDecCount: Function;
+  getItemIndex: Function;
 }
 
 export interface CartContextType {
@@ -22,6 +25,11 @@ export interface SideBarContextType {
 
 export interface SnackbarContextType {
   showSnackbar: Function;
+}
+export interface BackdropContextType {
+  showBackdrop: Function;
+  hideBackdrop: Function;
+  modalRef?: React.RefObject<HTMLDivElement>;
 }
 export interface Items {
   id: number;

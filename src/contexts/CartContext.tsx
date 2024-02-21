@@ -29,8 +29,9 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     return items.filter((item) => item === items[0])[0];
   };
 
-  const handleAddItem = (idx: number) => {
-    const curr = dataContextObject.items[idx];
+  const handleAddItem = (item: Items) => {
+    const currIndex = dataContextObject.getItemIndex(item)
+    const curr = dataContextObject.items[currIndex];
     if (items.filter((item) => curr.value === item.value).length === 0) {
       setItems([...items, curr].sort((a, b) => a.value - b.value));
       snackbarContextObject.showSnackbar(`Successfully added ${curr.value} to cart.`);
@@ -68,7 +69,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     e.stopPropagation();
     setItems(
       items.map((item) => {
-        if (curr === item && curr.count > 0) {
+        if (curr === item && curr.count > 1) {
           return { ...curr, count: curr.count - 1 };
         }
         return item;
@@ -78,14 +79,11 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   const handleToggleBookmark = (item: Items) => {
     const curr = item;
-    // console.log(curr);
     setItems(
       items.map((item) => {
         if (curr === item) {
-          // console.log("masuk");
           return { ...curr, bookmark: true };
         }
-        // console.log("diluar");
         return item;
       })
     );

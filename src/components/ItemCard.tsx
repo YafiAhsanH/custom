@@ -1,14 +1,20 @@
 import React from "react";
 import { Items } from "../interfaces";
 import { useCart } from "../contexts/CartContext";
-import { useData } from "../contexts/DataContext";
+import { useBackdrop } from "../contexts/BackdropContext";
+import BookmarkIcon from "./BookmarkIcon";
 
 const ItemCard = ({ item }: { item: Items }) => {
-  const dataContextObject = useData();
   const cartContextObject = useCart();
+  const backdropContextObject = useBackdrop();
   return (
     <div className="hover:scale-110 transition bg-white rounded-2xl group shadow-item-card flex flex-col z-10 min-w-[13.5rem] max-w-[13.5rem] ">
-      <div className="flex justify-center items-center w-full rounded-t-2xl px-5">
+      <div
+        className="hover:cursor-pointer flex justify-center items-center w-full rounded-t-2xl px-5"
+        onClick={() => {
+          backdropContextObject.showBackdrop(item);
+        }}
+      >
         <img
           src="/chairImage.png"
           alt="chair"
@@ -18,27 +24,7 @@ const ItemCard = ({ item }: { item: Items }) => {
       <div className="flex flex-col justify-start items-start w-full pb-4 px-5 rounded-b-2xl z-20 bg-white pt-3">
         <div className="flex justify-between items-center w-full mb-3">
           <div className="text-2xl font-medium">Chair</div>
-          <div className="hover:cursor-pointer hover:scale-125 active:scale-95 transition">
-            {item.bookmark ? (
-              <img
-                src="/bookmarkIconActive.png"
-                alt="bookmark"
-                width={20}
-                onClick={() => {
-                  dataContextObject.handleToggleBookmark(item);
-                }}
-              />
-            ) : (
-              <img
-                src="/bookmarkIcon.png"
-                alt="bookmark"
-                width={20}
-                onClick={() => {
-                  dataContextObject.handleToggleBookmark(item);
-                }}
-              />
-            )}
-          </div>
+          <BookmarkIcon item={item} />
         </div>
         <div className="text-sm mb-5">
           Transform your living space with our sleek and versatile chair.
@@ -47,7 +33,7 @@ const ItemCard = ({ item }: { item: Items }) => {
           <div className="text-xl font-medium">$119</div>
           <div
             className="bg-my-blue-400 text-white px-4 py-2 rounded-2xl text-sm font-medium hover:scale-110 transition active:scale-95 hover:cursor-pointer"
-            onClick={() => cartContextObject.handleAddItem(item.id)}
+            onClick={() => cartContextObject.handleAddItem(item)}
           >{`Add to cart >`}</div>
         </div>
       </div>
